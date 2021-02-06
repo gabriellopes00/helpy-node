@@ -1,0 +1,35 @@
+version: '3'
+services:
+  api:
+    container_name: api_container
+    image: node:14
+    working_dir: /help-women
+    restart: always
+    command: bash -c "yarn install --only=prod && yarn start"
+    environment:
+      - PORT=5500
+      - MONGO_URL=mongodb://mongo:27017/help-women
+    volumes:
+      - ./dist/:/help-women/dist/
+      - ./package.json:/help-women/package.json
+    ports:
+      - '5050:5050'
+    networks:
+      - help-women
+
+  mongo:
+    container_name: mongo_container
+    image: mongo:latest
+    restart: always
+    volumes:
+      - mongodb:/data/db
+    ports:
+      - '27017:27017'
+    networks:
+      - help-women
+
+networks:
+  help-women:
+
+volumes:
+  mongodb:
