@@ -3,10 +3,10 @@ export interface Position {
   longitude: number
 }
 
-export interface SOSRequest {
+export interface HelpRequest {
   id: string
   date: Date
   location: Position
 }
 
-export interface InputSOSRequest extends Omit<SOSRequest, 'id'> {}
+export interface InputHelpRequest extends Omit<HelpRequest, 'id'> {}
