@@ -5,7 +5,11 @@ module.exports = {
   rootDir: root,
   displayName: 'unit-tests',
   testEnvironment: 'node',
-  collectCoverageFrom: ['<rootDir>/**/*.ts', '!<rootDir>/**/*.d.ts'],
+  collectCoverageFrom: [
+    '<rootDir>/**/*.ts',
+    '!<rootDir>/**/*.d.ts',
+    '!<rootDir>/src/domain/**/*'
+  ],
   coverageDirectory: 'coverage/',
   coverageProvider: 'v8',
   clearMocks: true,
