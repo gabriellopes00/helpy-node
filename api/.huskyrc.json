@@ -1,10 +1,6 @@
 {
   "hooks": {
     "pre-commit": "lint-staged",
-    "pre-push": [
-      "yarn style:fix",
-      "yarn lint:fix",
-      "yarn test:full"
-    ]
+    "pre-push": "yarn test:ci"
   }
 }

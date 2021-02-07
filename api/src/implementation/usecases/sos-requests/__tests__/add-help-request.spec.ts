@@ -27,7 +27,9 @@ describe('AddHelpRequest', () => {
   it('Should throw if HelpRequestRepository throws', async () => {
     jest
       .spyOn(fakeHelpRepository, 'add')
-      .mockReturnValueOnce(new Promise((_, reject) => reject(new Error())))
+      .mockReturnValueOnce(
+        new Promise((resolve, reject) => reject(new Error()))
+      )
 
     const helpRequest = sut.add(fakeHelpRequest)
     await expect(helpRequest).rejects.toThrow()
