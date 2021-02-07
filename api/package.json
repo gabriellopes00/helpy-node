@@ -30,12 +30,14 @@
   "homepage": "https://github.com/gabriellopes00/node-project-setup#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "module-alias": "^2.2.2"
+    "module-alias": "^2.2.2",
+    "mongoose": "^5.11.15"
   },
   "devDependencies": {
     "@shelf/jest-mongodb": "^1.2.3",
     "@types/jest": "^26.0.20",
     "@types/module-alias": "^2.0.0",
+    "@types/mongoose": "^5.10.3",
     "@types/node": "^14.14.25",
     "@typescript-eslint/eslint-plugin": "^4.14.2",
     "@typescript-eslint/parser": "^4.14.2",
