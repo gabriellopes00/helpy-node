@@ -33,6 +33,11 @@ describe('Unit AddHelpRequest controller tests', () => {
     expect(addSpy).toHaveBeenCalledWith(fakeHelpRequest)
   })
 
+  it('Should return 204 on success', async () => {
+    const response = await sut.handle({ body: fakeHelpRequest })
+    expect(response.statusCode).toBe(204)
+  })
+
   it('Should return 500 if AddHelpRequest throws', async () => {
     jest
       .spyOn(fakeAddHelpRequest, 'add')
