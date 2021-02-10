@@ -22,6 +22,7 @@
       }
     ],
     "no-useless-constructor": "off",
-    "promise/param-names": "off"
+    "promise/param-names": "off",
+    "no-undef": "off"
   }
 }
