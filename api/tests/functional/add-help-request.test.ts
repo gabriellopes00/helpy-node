@@ -12,7 +12,7 @@
 //   it('Should return 204 on success', async () => {
 //     const response = await global.testRequest
 //       .post('/help-request')
-//       .send({ body: fakeHelpRequest })
+//       .send(fakeHelpRequest)
 //     expect(response.status).toBe(204)
 //   })
 
