@@ -1,12 +1,9 @@
-export interface Position {
+export interface HelpRequest {
+  id: string
+  date: Date
   latitude: number
   longitude: number
 }
 
-export interface HelpRequest {
-  id: string
-  date: Date
-  location: Position
-}
-
-export interface InputHelpRequest extends Omit<HelpRequest, 'id'> {}
+export interface InputHelpRequest extends Omit<HelpRequest, 'id' | 'date'> {}
+export interface StoreHelpRequest extends Omit<HelpRequest, 'id'> {}

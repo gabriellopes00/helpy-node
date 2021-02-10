@@ -1,16 +1,14 @@
-import { InputHelpRequest } from '@src/domain/models/help-request'
+import { StoreHelpRequest } from '@src/domain/models/help-request'
 import { DbHelpRequest } from '../model'
 import { connect, close } from '../../helpers/mongoose'
 import { MongoHelpRequestRepository } from '../repository'
 
 describe('Mongoose HelpRequest', () => {
   const Model = DbHelpRequest
-  const fakeHelpRequest: InputHelpRequest = {
-    date: new Date('2021-02-06T23:33:44.290Z'),
-    location: {
-      latitude: -23.168516,
-      longitude: -46.869015
-    }
+  const fakeHelpRequest: StoreHelpRequest = {
+    date: new Date(),
+    latitude: -23.168516,
+    longitude: -46.869015
   }
 
   beforeAll(async () => await connect())

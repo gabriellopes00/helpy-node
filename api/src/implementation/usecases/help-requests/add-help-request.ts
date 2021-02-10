@@ -6,7 +6,10 @@ export class DbAddHelpRequest implements AddHelpRequest {
   constructor(private readonly HelpRepository: AddHelpRequestRepository) {}
 
   async add(data: InputHelpRequest): Promise<HelpRequest> {
-    const helpRequest = await this.HelpRepository.add(data)
+    const helpRequest = await this.HelpRepository.add({
+      date: new Date(),
+      ...data
+    })
     return helpRequest
   }
 }

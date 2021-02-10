@@ -9,7 +9,8 @@ export class MongoHelpRequestRepository implements AddHelpRequestRepository {
     return {
       id: result.id,
       date: result.date,
-      location: result.location
+      latitude: result.latitude,
+      longitude: result.longitude
     }
   }
 }

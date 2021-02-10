@@ -4,10 +4,8 @@ import mongoose, { Document, Model, Schema } from 'mongoose'
 const schema = new Schema(
   {
     date: { type: Date, required: true },
-    location: {
-      latitude: { type: Number, required: true },
-      longitude: { type: Number, required: true }
-    }
+    latitude: { type: Number, required: true },
+    longitude: { type: Number, required: true }
   },
   {
     toJSON: {

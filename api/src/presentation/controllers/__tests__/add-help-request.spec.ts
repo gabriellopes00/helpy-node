@@ -7,10 +7,8 @@ class FakeAddHelpRequest implements AddHelpRequest {
     return {
       id: 'asdf',
       date: new Date('2021-02-06T23:33:44.290Z'),
-      location: {
-        latitude: -23.168516,
-        longitude: -46.869015
-      }
+      latitude: -23.168516,
+      longitude: -46.869015
     }
   }
 }
@@ -20,11 +18,8 @@ describe('Unit AddHelpRequest controller tests', () => {
   const sut = new AddHelpRequestController(fakeAddHelpRequest)
 
   const fakeHelpRequest: InputHelpRequest = {
-    date: new Date('2021-02-06T23:33:44.290Z'),
-    location: {
-      latitude: -23.168516,
-      longitude: -46.869015
-    }
+    latitude: -23.168516,
+    longitude: -46.869015
   }
 
   it('Should call addHelpRequest with correct values', async () => {

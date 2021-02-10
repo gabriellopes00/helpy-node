@@ -1,22 +1,27 @@
 import { InputHelpRequest } from '@src/domain/models/help-request'
 import { DbAddHelpRequest } from '../add-help-request'
 import { FakeHelpRepository } from './factory'
+import mockDate from 'mockdate'
 
 describe('AddHelpRequest', () => {
   const fakeHelpRepository = new FakeHelpRepository()
   const sut = new DbAddHelpRequest(fakeHelpRepository)
   const fakeHelpRequest: InputHelpRequest = {
-    date: new Date('2021-02-06T23:33:44.290Z'),
-    location: {
-      latitude: -23.168516,
-      longitude: -46.869015
-    }
+    latitude: -23.168516,
+    longitude: -46.869015
   }
+
+  beforeAll(() => mockDate.set(new Date()))
+  afterAll(() => mockDate.reset())
 
   it('Should call HelpRequestRepository with correct values', async () => {
     const addSpy = jest.spyOn(fakeHelpRepository, 'add')
     await sut.add(fakeHelpRequest)
-    expect(addSpy).toHaveBeenCalledWith(fakeHelpRequest)
+    expect(addSpy).toHaveBeenCalledWith({
+      date: new Date(),
+      latitude: -23.168516,
+      longitude: -46.869015
+    })
   })
 
   it('Should return a helpRequest on success', async () => {
