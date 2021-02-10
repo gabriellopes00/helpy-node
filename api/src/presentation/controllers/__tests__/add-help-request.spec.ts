@@ -32,4 +32,14 @@ describe('Unit AddHelpRequest controller tests', () => {
     await sut.handle({ body: fakeHelpRequest })
     expect(addSpy).toHaveBeenCalledWith(fakeHelpRequest)
   })
+
+  it('Should return 500 if AddHelpRequest throws', async () => {
+    jest
+      .spyOn(fakeAddHelpRequest, 'add')
+      .mockResolvedValueOnce(
+        new Promise((resolve, reject) => reject(new Error('asdf')))
+      )
+    const response = await sut.handle({ body: fakeHelpRequest })
+    expect(response.statusCode).toBe(500)
+  })
 })
