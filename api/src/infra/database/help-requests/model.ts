@@ -20,6 +20,6 @@ const schema = new Schema(
 
 export interface HelpRequestSchema extends Omit<HelpRequest, 'id'>, Document {}
 export const DbHelpRequest: Model<HelpRequestSchema> = mongoose.model(
-  'HelpRequest',
+  'help-requests',
   schema
 )

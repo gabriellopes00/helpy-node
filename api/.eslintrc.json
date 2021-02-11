@@ -23,6 +23,7 @@
     ],
     "no-useless-constructor": "off",
     "promise/param-names": "off",
-    "no-undef": "off"
+    "no-undef": "off",
+    "node/handle-callback-err": "off"
   }
 }
