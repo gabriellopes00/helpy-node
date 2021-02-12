@@ -1,7 +1,7 @@
 import { InputHelpRequest, HelpRequest } from '@src/domain/models/help-request'
 import { AddHelpRequest } from '@src/domain/usecases/add-help-request'
 
-export class FakeHelpRepository implements AddHelpRequest {
+export class FakeHelpRequestRepository implements AddHelpRequest {
   async add(data: InputHelpRequest): Promise<HelpRequest> {
     return {
       id: 'asdf123',

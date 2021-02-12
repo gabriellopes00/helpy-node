@@ -1,11 +1,11 @@
 import { InputHelpRequest } from '@src/domain/models/help-request'
 import { DbAddHelpRequest } from '../add-help-request'
-import { FakeHelpRepository } from './factory'
+import { FakeHelpRequestRepository } from './fake'
 import mockDate from 'mockdate'
 
 describe('AddHelpRequest', () => {
-  const fakeHelpRepository = new FakeHelpRepository()
-  const sut = new DbAddHelpRequest(fakeHelpRepository)
+  const mockedRepository = new FakeHelpRequestRepository() as jest.Mocked<FakeHelpRequestRepository>
+  const sut = new DbAddHelpRequest(mockedRepository)
   const fakeHelpRequest: InputHelpRequest = {
     latitude: -23.168516,
     longitude: -46.869015
@@ -15,7 +15,7 @@ describe('AddHelpRequest', () => {
   afterAll(() => mockDate.reset())
 
   it('Should call HelpRequestRepository with correct values', async () => {
-    const addSpy = jest.spyOn(fakeHelpRepository, 'add')
+    const addSpy = jest.spyOn(mockedRepository, 'add')
     await sut.add(fakeHelpRequest)
     expect(addSpy).toHaveBeenCalledWith({
       date: new Date(),
@@ -30,11 +30,9 @@ describe('AddHelpRequest', () => {
   })
 
   it('Should throw if HelpRequestRepository throws', async () => {
-    jest
-      .spyOn(fakeHelpRepository, 'add')
-      .mockReturnValueOnce(
-        new Promise((resolve, reject) => reject(new Error()))
-      )
+    mockedRepository.add.mockReturnValueOnce(
+      new Promise((resolve, reject) => reject(new Error()))
+    )
 
     const helpRequest = sut.add(fakeHelpRequest)
     await expect(helpRequest).rejects.toThrow()
