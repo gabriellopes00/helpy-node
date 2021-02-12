@@ -44,9 +44,7 @@ describe('Unit AddHelpRequest controller tests', () => {
     })
 
     it('Should return 500 if AddHelpRequest throws', async () => {
-      mockedAddHelpRequest.add.mockResolvedValueOnce(
-        new Promise((resolve, reject) => reject(new Error('asdf')))
-      )
+      mockedAddHelpRequest.add.mockRejectedValue(new Error())
       const response = await sut.handle({ body: fakeHelpRequest })
       expect(response.statusCode).toBe(500)
     })

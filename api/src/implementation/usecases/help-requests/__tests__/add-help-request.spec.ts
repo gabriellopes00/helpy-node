@@ -30,9 +30,7 @@ describe('AddHelpRequest', () => {
   })
 
   it('Should throw if HelpRequestRepository throws', async () => {
-    mockedRepository.add.mockReturnValueOnce(
-      new Promise((resolve, reject) => reject(new Error()))
-    )
+    mockedRepository.add.mockRejectedValueOnce(new Error())
 
     const helpRequest = sut.add(fakeHelpRequest)
     await expect(helpRequest).rejects.toThrow()
