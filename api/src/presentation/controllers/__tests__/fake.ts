@@ -1,6 +1,6 @@
-import { InputHelpRequest, HelpRequest } from '@src/domain/models/help-request'
-import { AddHelpRequest } from '@src/domain/usecases/add-help-request'
-import { Validation } from '@src/presentation/validation/interfaces/validation'
+import { InputHelpRequest, HelpRequest } from '@/domain/models/help-request'
+import { AddHelpRequest } from '@/domain/usecases/add-help-request'
+import { Validation } from '@/presentation/validation/interfaces/validation'
 
 export class FakeAddHelpRequest implements AddHelpRequest {
   async add(data: InputHelpRequest): Promise<HelpRequest> {

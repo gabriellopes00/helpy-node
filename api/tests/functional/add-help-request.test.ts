@@ -1,15 +1,10 @@
-import { InputHelpRequest } from '@src/domain/models/help-request'
+import { InputHelpRequest } from '@/domain/models/help-request'
 
 describe('AddHelpRequest Controller', () => {
-  const fakeHelpRequest: InputHelpRequest = {
-    latitude: -23.168516,
-    longitude: -46.869015
-  }
+  const fakeHelpRequest: InputHelpRequest = { latitude: -23.168516, longitude: -46.869015 }
 
   it('Should return 204 on success', async () => {
-    const response = await global.testRequest
-      .post('/api/help-request')
-      .send(fakeHelpRequest)
+    const response = await global.testRequest.post('/api/help-request').send(fakeHelpRequest)
     expect(response.status).toBe(204)
   })
 

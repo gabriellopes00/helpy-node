@@ -4,5 +4,5 @@ import moduleAlias from 'module-alias'
 const files = path.resolve(__dirname, '..', '..')
 
 moduleAlias.addAliases({
-  '@src': path.join(files, 'src')
+  '@': path.join(files, 'src')
 })

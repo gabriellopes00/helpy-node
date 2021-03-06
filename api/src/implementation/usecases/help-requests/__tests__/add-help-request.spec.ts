@@ -1,4 +1,4 @@
-import { InputHelpRequest } from '@src/domain/models/help-request'
+import { InputHelpRequest } from '@/domain/models/help-request'
 import { DbAddHelpRequest } from '../add-help-request'
 import { FakeHelpRequestRepository } from './fake'
 import mockDate from 'mockdate'

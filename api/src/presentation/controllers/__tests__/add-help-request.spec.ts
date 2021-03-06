@@ -1,5 +1,5 @@
-import { InputHelpRequest } from '@src/domain/models/help-request'
-import { badRequest } from '@src/presentation/helpers/http'
+import { InputHelpRequest } from '@/domain/models/help-request'
+import { badRequest } from '@/presentation/helpers/http'
 import { AddHelpRequestController } from '../add-help-request'
 import { FakeAddHelpRequest, FakeValidation } from './fake'
 
@@ -7,10 +7,7 @@ describe('Unit AddHelpRequest controller tests', () => {
   const mockedValidation = new FakeValidation() as jest.Mocked<FakeValidation>
   const mockedAddHelpRequest = new FakeAddHelpRequest() as jest.Mocked<FakeAddHelpRequest>
 
-  const sut = new AddHelpRequestController(
-    mockedAddHelpRequest,
-    mockedValidation
-  )
+  const sut = new AddHelpRequestController(mockedAddHelpRequest, mockedValidation)
 
   const fakeHelpRequest: InputHelpRequest = {
     latitude: -23.168516,

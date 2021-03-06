@@ -1,5 +1,5 @@
-import { InputHelpRequest } from '@src/domain/models/help-request'
-import { AddHelpRequest } from '@src/domain/usecases/add-help-request'
+import { InputHelpRequest } from '@/domain/models/help-request'
+import { AddHelpRequest } from '@/domain/usecases/add-help-request'
 import { badRequest, noContent, serverError } from '../helpers/http'
 import { Controller } from '../interfaces/controller'
 import { HttpRequest, HttpResponse } from '../interfaces/http'
@@ -11,9 +11,7 @@ export class AddHelpRequestController implements Controller {
     private readonly validation: Validation
   ) {}
 
-  async handle(
-    httpRequest: HttpRequest<InputHelpRequest>
-  ): Promise<HttpResponse> {
+  async handle(httpRequest: HttpRequest<InputHelpRequest>): Promise<HttpResponse> {
     try {
       const helpRequest = httpRequest.body
 

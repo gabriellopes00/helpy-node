@@ -1,5 +1,5 @@
-import { InputHelpRequest, HelpRequest } from '@src/domain/models/help-request'
-import { AddHelpRequest } from '@src/domain/usecases/add-help-request'
+import { InputHelpRequest, HelpRequest } from '@/domain/models/help-request'
+import { AddHelpRequest } from '@/domain/usecases/add-help-request'
 
 export class FakeHelpRequestRepository implements AddHelpRequest {
   async add(data: InputHelpRequest): Promise<HelpRequest> {

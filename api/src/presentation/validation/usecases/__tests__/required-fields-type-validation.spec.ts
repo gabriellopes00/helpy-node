@@ -1,4 +1,4 @@
-import { UnmatchParamType } from '@src/presentation/errors/unmatch-param-type-error'
+import { UnmatchParamType } from '@/presentation/errors/unmatch-param-type-error'
 import { RequiredFieldsTypeValidation } from '../required-fields-type-validation'
 
 describe('RequiredFieldsType validation', () => {

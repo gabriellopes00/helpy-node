@@ -1,5 +1,5 @@
-import { connect, close } from '@src/infra/database/helpers/mongoose'
-import app from '@src/main/config/app'
+import { connect, close } from '@/infra/database/helpers/mongoose'
+import app from '@/main/config/app'
 import supertest from 'supertest'
 
 beforeAll(async () => {

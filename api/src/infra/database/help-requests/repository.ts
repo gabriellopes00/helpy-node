@@ -1,5 +1,5 @@
-import { HelpRequest, InputHelpRequest } from '@src/domain/models/help-request'
-import { AddHelpRequestRepository } from '@src/implementation/interfaces/add-help-request-repository'
+import { HelpRequest, InputHelpRequest } from '@/domain/models/help-request'
+import { AddHelpRequestRepository } from '@/implementation/interfaces/add-help-request-repository'
 import { DbHelpRequest } from './model'
 
 export class MongoHelpRequestRepository implements AddHelpRequestRepository {

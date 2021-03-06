@@ -1,6 +1,6 @@
-import { InputHelpRequest, HelpRequest } from '@src/domain/models/help-request'
-import { AddHelpRequest } from '@src/domain/usecases/add-help-request'
-import { AddHelpRequestRepository } from '@src/implementation/interfaces/add-help-request-repository'
+import { InputHelpRequest, HelpRequest } from '@/domain/models/help-request'
+import { AddHelpRequest } from '@/domain/usecases/add-help-request'
+import { AddHelpRequestRepository } from '@/implementation/interfaces/add-help-request-repository'
 
 export class DbAddHelpRequest implements AddHelpRequest {
   constructor(private readonly HelpRepository: AddHelpRequestRepository) {}

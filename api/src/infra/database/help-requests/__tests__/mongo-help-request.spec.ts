@@ -1,4 +1,4 @@
-import { StoreHelpRequest } from '@src/domain/models/help-request'
+import { StoreHelpRequest } from '@/domain/models/help-request'
 import { DbHelpRequest } from '../model'
 import { connect, close } from '../../helpers/mongoose'
 import { MongoHelpRequestRepository } from '../repository'

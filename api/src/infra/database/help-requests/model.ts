@@ -1,4 +1,4 @@
-import { HelpRequest } from '@src/domain/models/help-request'
+import { HelpRequest } from '@/domain/models/help-request'
 import mongoose, { Document, Model, Schema } from 'mongoose'
 
 const schema = new Schema(
@@ -19,7 +19,4 @@ const schema = new Schema(
 )
 
 export interface HelpRequestSchema extends Omit<HelpRequest, 'id'>, Document {}
-export const DbHelpRequest: Model<HelpRequestSchema> = mongoose.model(
-  'help-requests',
-  schema
-)
+export const DbHelpRequest: Model<HelpRequestSchema> = mongoose.model('help-requests', schema)
