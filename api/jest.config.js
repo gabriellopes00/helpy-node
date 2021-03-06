@@ -3,12 +3,12 @@ const root = resolve(__dirname)
 
 module.exports = {
   rootDir: root,
-  displayName: 'unit-tests',
   testEnvironment: 'node',
   collectCoverageFrom: [
     '<rootDir>/**/*.ts',
     '!<rootDir>/**/*.d.ts',
     '!<rootDir>/src/domain/**/*',
+    '!<rootDir>/src/@types/**/*',
     '!<rootDir>/src/config/**/*',
     '!<rootDir>/src/main/**/*',
     '!<rootDir>/**/interfaces/**/*',

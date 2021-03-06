@@ -13,10 +13,10 @@
     "lint:fix": "eslint src tests --ext .ts --fix",
     "test": "jest --passWithNoTests --noStackTrace --runInBand --no-cache",
     "test:cache": "jest --clearCache",
-    "test:ci": "yarn test:unit --coverage",
+    "test:ci": "yarn test --coverage",
     "test:unit": "yarn test -c jest-unit-config.js",
-    "test:func": "yarn test --projects tests/",
-    "test:full": "yarn test:unit && yarn test:func --silent"
+    "test:func": "yarn test -c jest-functional-config.js",
+    "test:full": "yarn test --silent"
   },
   "repository": {
     "type": "git",

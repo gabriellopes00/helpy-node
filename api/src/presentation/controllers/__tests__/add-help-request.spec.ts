@@ -1,7 +1,7 @@
 import { InputHelpRequest } from '@/domain/models/help-request'
 import { badRequest } from '@/presentation/helpers/http'
 import { AddHelpRequestController } from '../add-help-request'
-import { FakeAddHelpRequest, FakeValidation } from './fake'
+import { FakeAddHelpRequest, FakeValidation } from '../mocks'
 
 describe('Unit AddHelpRequest controller tests', () => {
   const mockedValidation = new FakeValidation() as jest.Mocked<FakeValidation>

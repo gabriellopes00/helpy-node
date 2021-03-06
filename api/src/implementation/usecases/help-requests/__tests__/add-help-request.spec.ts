@@ -1,6 +1,6 @@
 import { InputHelpRequest } from '@/domain/models/help-request'
 import { DbAddHelpRequest } from '../add-help-request'
-import { FakeHelpRequestRepository } from './fake'
+import { FakeHelpRequestRepository } from '../mocks'
 import mockDate from 'mockdate'
 
 describe('AddHelpRequest', () => {
