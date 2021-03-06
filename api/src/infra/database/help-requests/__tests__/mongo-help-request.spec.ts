@@ -25,6 +25,7 @@ describe('Mongoose HelpRequest', () => {
 
   describe('HelpRequest Repository', () => {
     const repository = new MongoHelpRequestRepository()
+
     it('Should create a new help request', async () => {
       const helpRequest = await repository.add(fakeHelpRequest)
       expect(helpRequest).toEqual(expect.objectContaining(fakeHelpRequest))

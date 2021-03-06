@@ -3,11 +3,7 @@ import { Validation } from '../interfaces/validation'
 
 export class RequiredFieldsTypeValidation implements Validation {
   validate(data: any): Error {
-    if (typeof data.latitude !== 'number') {
-      return new UnmatchParamType('latitude')
-    }
-    if (typeof data.longitude !== 'number') {
-      return new UnmatchParamType('longitude')
-    }
+    if (typeof data.latitude !== 'number') return new UnmatchParamType('latitude')
+    if (typeof data.longitude !== 'number') return new UnmatchParamType('longitude')
   }
 }
