@@ -1,13 +1,21 @@
-import { InputHelpRequest } from '@/domain/models/help-request'
+import { HelpRequest, InputHelpRequest } from '@/domain/models/help-request'
+import { AddHelpRequest } from '@/domain/usecases/add-help-request'
+import { fakeHelpRequest } from '@/mocks/help-request'
+import { MockValidation } from '@/mocks/validation'
 import { badRequest } from '@/presentation/helpers/http'
 import { AddHelpRequestController } from '../add-help-request'
-import { FakeAddHelpRequest, FakeValidation } from '../mocks'
+
+class MockAddHelpRequest implements AddHelpRequest {
+  async add(data: InputHelpRequest): Promise<HelpRequest> {
+    return fakeHelpRequest
+  }
+}
 
 describe('Unit AddHelpRequest controller tests', () => {
-  const mockedValidation = new FakeValidation() as jest.Mocked<FakeValidation>
-  const mockedAddHelpRequest = new FakeAddHelpRequest() as jest.Mocked<FakeAddHelpRequest>
+  const mockValidation = new MockValidation() as jest.Mocked<MockValidation>
+  const mockAddHelpRequest = new MockAddHelpRequest() as jest.Mocked<MockAddHelpRequest>
 
-  const sut = new AddHelpRequestController(mockedAddHelpRequest, mockedValidation)
+  const sut = new AddHelpRequestController(mockAddHelpRequest, mockValidation)
 
   const fakeHelpRequest: InputHelpRequest = {
     latitude: -23.168516,
@@ -16,13 +24,13 @@ describe('Unit AddHelpRequest controller tests', () => {
 
   describe('Validations', () => {
     it('Should call validation with correct values', async () => {
-      const validateSpy = jest.spyOn(mockedValidation, 'validate')
+      const validateSpy = jest.spyOn(mockValidation, 'validate')
       await sut.handle({ body: fakeHelpRequest })
       expect(validateSpy).toHaveBeenCalledWith(fakeHelpRequest)
     })
 
     it('Should return 400 if validation fails', async () => {
-      mockedValidation.validate.mockReturnValueOnce(new Error())
+      mockValidation.validate.mockReturnValueOnce(new Error())
       const error = await sut.handle({ body: fakeHelpRequest })
       expect(error).toEqual(badRequest(new Error()))
     })
@@ -30,7 +38,7 @@ describe('Unit AddHelpRequest controller tests', () => {
 
   describe('AddHelpRequest', () => {
     it('Should call addHelpRequest with correct values', async () => {
-      const addSpy = jest.spyOn(mockedAddHelpRequest, 'add')
+      const addSpy = jest.spyOn(mockAddHelpRequest, 'add')
       await sut.handle({ body: fakeHelpRequest })
       expect(addSpy).toHaveBeenCalledWith(fakeHelpRequest)
     })
@@ -41,7 +49,7 @@ describe('Unit AddHelpRequest controller tests', () => {
     })
 
     it('Should return 500 if AddHelpRequest throws', async () => {
-      mockedAddHelpRequest.add.mockRejectedValue(new Error())
+      mockAddHelpRequest.add.mockRejectedValue(new Error())
       const response = await sut.handle({ body: fakeHelpRequest })
       expect(response.statusCode).toBe(500)
     })

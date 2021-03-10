@@ -1,34 +1,36 @@
-import { InputHelpRequest } from '@/domain/models/help-request'
-import { DbAddHelpRequest } from '../add-help-request'
-import { FakeHelpRequestRepository } from '../mocks'
+import { fakeHelpRequest, fakeHelpRequestParams, fakeStoreHelpRequest } from '@/mocks/help-request'
+import { HelpRequest, InputHelpRequest } from '@/domain/models/help-request'
+import { AddHelpRequest } from '@/domain/usecases/add-help-request'
 import mockDate from 'mockdate'
+import { DbAddHelpRequest } from '../add-help-request'
+
+class MockHelpRequestRepository implements AddHelpRequest {
+  async add(data: InputHelpRequest): Promise<HelpRequest> {
+    return fakeHelpRequest
+  }
+}
 
 describe('AddHelpRequest', () => {
-  const mockedRepository = new FakeHelpRequestRepository() as jest.Mocked<FakeHelpRequestRepository>
-  const sut = new DbAddHelpRequest(mockedRepository)
-  const fakeHelpRequest: InputHelpRequest = { latitude: -23.168516, longitude: -46.869015 }
+  const mockRepository = new MockHelpRequestRepository() as jest.Mocked<MockHelpRequestRepository>
+  const sut = new DbAddHelpRequest(mockRepository)
 
-  beforeAll(() => mockDate.set(new Date()))
+  beforeAll(() => mockDate.set(new Date('2021')))
   afterAll(() => mockDate.reset())
 
   it('Should call HelpRequestRepository with correct values', async () => {
-    const addSpy = jest.spyOn(mockedRepository, 'add')
-    await sut.add(fakeHelpRequest)
-    expect(addSpy).toHaveBeenCalledWith({
-      date: new Date(),
-      latitude: -23.168516,
-      longitude: -46.869015
-    })
+    const addSpy = jest.spyOn(mockRepository, 'add')
+    await sut.add(fakeHelpRequestParams)
+    expect(addSpy).toHaveBeenCalledWith(fakeStoreHelpRequest)
   })
 
   it('Should return a helpRequest on success', async () => {
-    const helpRequest = await sut.add(fakeHelpRequest)
-    expect(helpRequest).toEqual(expect.objectContaining(fakeHelpRequest))
+    const helpRequest = await sut.add(fakeHelpRequestParams)
+    expect(helpRequest).toEqual(expect.objectContaining(fakeHelpRequestParams))
   })
 
   it('Should throw if HelpRequestRepository throws', async () => {
-    mockedRepository.add.mockRejectedValueOnce(new Error())
-    const helpRequest = sut.add(fakeHelpRequest)
+    mockRepository.add.mockRejectedValueOnce(new Error())
+    const helpRequest = sut.add(fakeHelpRequestParams)
     await expect(helpRequest).rejects.toThrow()
   })
 })

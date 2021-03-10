@@ -1,12 +1,12 @@
+import { MockValidation } from '@/mocks/validation'
 import { ValidationCompositor } from '../validation-compositor'
-import { FakeValidation } from '../mocks'
 
 describe('ValidationCompositor', () => {
-  const mockedValidation = new FakeValidation() as jest.Mocked<FakeValidation>
-  const sut = new ValidationCompositor([mockedValidation])
+  const mockValidation = new MockValidation() as jest.Mocked<MockValidation>
+  const sut = new ValidationCompositor([mockValidation])
 
   it('Should return an error if any validation fails', () => {
-    jest.spyOn(mockedValidation, 'validate').mockReturnValueOnce(new Error())
+    jest.spyOn(mockValidation, 'validate').mockReturnValueOnce(new Error())
     const error = sut.validate({ longitude: -23.168516, latitude: -23.168516 })
     expect(error).toEqual(new Error())
   })

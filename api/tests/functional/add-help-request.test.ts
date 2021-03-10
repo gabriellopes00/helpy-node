@@ -1,17 +1,16 @@
-import { InputHelpRequest } from '@/domain/models/help-request'
 import { close, connect } from '@/infra/database/helpers/mongoose'
 import app from '@/main/config/app'
+import { fakeHelpRequestParams } from '@/mocks/help-request'
 import supertest from 'supertest'
 
 describe('AddHelpRequest Controller', () => {
-  const fakeHelpRequest: InputHelpRequest = { latitude: -23.168516, longitude: -46.869015 }
   const request = supertest(app)
 
   beforeAll(async () => await connect())
   afterAll(async () => await close())
 
   it('Should return 204 on success', async () => {
-    const response = await request.post('/api/help-request').send(fakeHelpRequest)
+    const response = await request.post('/api/help-request').send(fakeHelpRequestParams)
     expect(response.status).toBe(204)
   })
 
