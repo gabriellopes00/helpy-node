@@ -34,9 +34,7 @@ import logger from '../config/logger'
 
 // Errors handles
 process.on('unhandledRejection', (reason, promise) => {
-  logger.error(
-    `App exiting due an unhandled promise: ${promise} and reason: ${reason}`
-  )
+  logger.error(`App exiting due an unhandled promise: ${promise} and reason: ${reason}`)
   throw reason
 })
 
