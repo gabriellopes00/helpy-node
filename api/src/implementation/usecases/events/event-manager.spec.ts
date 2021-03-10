@@ -1,9 +1,9 @@
-import EventEmitter from 'events'
+import { EventEmitter } from '@/implementation/interfaces/event-emitter'
 import { EventManager } from './event-manager'
 
-class MockEventEmitter implements Partial<EventEmitter> {
-  emit(name: string, args: any): boolean {
-    return true
+class MockEventEmitter implements EventEmitter {
+  emit(args: any, name: string): void {
+
   }
 }
 

@@ -1,10 +1,10 @@
-import { EventController } from '@/implementation/interfaces/event-manager'
-import EventEmitter from 'events'
+import { EventController } from '@/domain/usecases/event-manager'
+import { EventEmitter } from '@/implementation/interfaces/event-emitter'
 
 export class EventManager implements EventController {
   constructor(private readonly eventEmitter: EventEmitter) {}
 
-  emit(data: any, name?: string): void {
-    this.eventEmitter.emit(name || 'new-help-request', data)
+  emit(data: any, name: string): void {
+    this.eventEmitter.emit(name, data)
   }
 }
