@@ -1,14 +1,13 @@
-import { EventEmitter } from '@/implementation/interfaces/event-emitter'
 import { EventManager } from './event-manager'
 
-class MockEventEmitter implements EventEmitter {
-  emit(args: any, name: string): void {
-
+class MockEventEmitter implements Partial<NodeJS.EventEmitter> {
+  emit(event: string | symbol, ...args: any[]): boolean {
+    return true
   }
 }
 
 describe('Event Emitter', () => {
-  const mockEventEmitter = new MockEventEmitter() as jest.Mocked<EventEmitter>
+  const mockEventEmitter = new MockEventEmitter() as jest.Mocked<NodeJS.EventEmitter>
   const sut = new EventManager(mockEventEmitter)
   const fakeData = 'any_data'
 
