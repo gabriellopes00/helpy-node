@@ -8,7 +8,8 @@ import { Validation } from '../validation/interfaces/validation'
 export class AddHelpRequestController implements Controller {
   constructor(
     private readonly addHelpRequest: AddHelpRequest,
-    private readonly validation: Validation
+    private readonly validation: Validation,
+    private readonly eventEmitter: NodeJS.EventEmitter
   ) {}
 
   async handle(httpRequest: HttpRequest<InputHelpRequest>): Promise<HttpResponse> {
@@ -18,7 +19,8 @@ export class AddHelpRequestController implements Controller {
       const error = this.validation.validate(helpRequest)
       if (error) return badRequest(error)
 
-      await this.addHelpRequest.add(helpRequest)
+      const createdData = await this.addHelpRequest.add(helpRequest)
+      if (createdData) this.eventEmitter.emit('new_help_request', createdData)
       return noContent()
     } catch (error) {
       return serverError(error)

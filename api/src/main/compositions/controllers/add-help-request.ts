@@ -4,6 +4,7 @@ import { AddHelpRequestController } from '@/presentation/controllers/add-help-re
 import { RequiredFieldsTypeValidation } from '@/presentation/validation/usecases/required-fields-type-validation'
 import { RequiredFieldsValidation } from '@/presentation/validation/usecases/required-fields-validation'
 import { ValidationCompositor } from '@/presentation/validation/usecases/validation-compositor'
+import EventEmitter from 'events'
 
 // DbAddHelpRequest
 const helpRequestRepository = new MongoHelpRequestRepository()
@@ -14,4 +15,11 @@ const validations = new ValidationCompositor([
   new RequiredFieldsTypeValidation()
 ])
 
-export const addHelpRequestController = new AddHelpRequestController(dbAddHelpRequest, validations)
+class CustomEventEmitter extends EventEmitter {}
+export const eventEmitter = new CustomEventEmitter()
+
+export const addHelpRequestController = new AddHelpRequestController(
+  dbAddHelpRequest,
+  validations,
+  eventEmitter
+)
