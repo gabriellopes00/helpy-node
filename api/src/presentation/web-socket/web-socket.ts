@@ -7,6 +7,11 @@ export class WebSocketManager {
   ) {}
 
   handle(): void {
-    this.eventEmitter.on('new_help_request', data => this.webSocket.emit('new_help_request', data))
+    this.eventEmitter.on('new_help_request', data =>
+      this.webSocket.emit('new_help_request', {
+        message: `New help request received at ${new Date().toISOString()}`,
+        data
+      })
+    )
   }
 }
