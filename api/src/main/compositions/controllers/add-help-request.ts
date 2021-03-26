@@ -4,9 +4,8 @@ import { AddHelpRequestController } from '@/presentation/controllers/add-help-re
 import { RequiredFieldsTypeValidation } from '@/presentation/validation/usecases/required-fields-type-validation'
 import { RequiredFieldsValidation } from '@/presentation/validation/usecases/required-fields-validation'
 import { ValidationCompositor } from '@/presentation/validation/usecases/validation-compositor'
-import EventEmitter from 'events'
+import { eventEmitter } from '../event/event-emitter'
 
-// DbAddHelpRequest
 const helpRequestRepository = new MongoHelpRequestRepository()
 const dbAddHelpRequest = new DbAddHelpRequest(helpRequestRepository)
 
@@ -14,9 +13,6 @@ const validations = new ValidationCompositor([
   new RequiredFieldsValidation(['latitude', 'longitude']),
   new RequiredFieldsTypeValidation()
 ])
-
-class CustomEventEmitter extends EventEmitter {}
-export const eventEmitter = new CustomEventEmitter()
 
 export const addHelpRequestController = new AddHelpRequestController(
   dbAddHelpRequest,

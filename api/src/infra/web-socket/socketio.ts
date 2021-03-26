@@ -1,4 +1,5 @@
 import { WebSocket } from '@/presentation/interfaces/web-socket'
+import SocketIO from 'socket.io'
 
 export class SocketIo implements WebSocket {
   constructor(private readonly io: SocketIO.Socket) {}
