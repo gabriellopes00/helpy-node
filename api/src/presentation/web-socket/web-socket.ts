@@ -1,6 +1,6 @@
-import { WebSocket } from '@/implementation/interfaces/web-socket'
+import { WebSocket } from '@/presentation/interfaces/web-socket'
 
-export class EventManager {
+export class WebSocketManager {
   constructor(
     private readonly eventEmitter: NodeJS.EventEmitter,
     private readonly webSocket: WebSocket
