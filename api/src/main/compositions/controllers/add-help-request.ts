@@ -1,7 +1,7 @@
 import { DbAddHelpRequest } from '@/implementation/usecases/help-requests/add-help-request'
 import { MongoHelpRequestRepository } from '@/infra/database/help-requests/repository'
 import { AddHelpRequestController } from '@/presentation/controllers/add-help-request'
-import { RequiredFieldsTypeValidation } from '@/presentation/validation/usecases/required-fields-type-validation'
+import { CoordinatesValidation } from '@/presentation/validation/usecases/coordinates-validation'
 import { RequiredFieldsValidation } from '@/presentation/validation/usecases/required-fields-validation'
 import { ValidationCompositor } from '@/presentation/validation/usecases/validation-compositor'
 import { eventEmitter } from '../event/event-emitter'
@@ -11,7 +11,7 @@ const dbAddHelpRequest = new DbAddHelpRequest(helpRequestRepository)
 
 const validations = new ValidationCompositor([
   new RequiredFieldsValidation(['latitude', 'longitude']),
-  new RequiredFieldsTypeValidation()
+  new CoordinatesValidation()
 ])
 
 export const addHelpRequestController = new AddHelpRequestController(
