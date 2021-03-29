@@ -9,6 +9,6 @@ export default (server: Server): void => {
   io.on('connection', socket => {
     const socketIo = new SocketIo(socket)
     const webSocketManager = new WebSocketManager(eventEmitter, socketIo)
-    webSocketManager.handle()
+    webSocketManager.handle('new_help_request')
   })
 }

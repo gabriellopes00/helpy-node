@@ -15,7 +15,6 @@ export class AddHelpRequestController implements Controller {
   async handle(httpRequest: HttpRequest<InputHelpRequest>): Promise<HttpResponse> {
     try {
       const helpRequest = httpRequest.body
-
       const error = this.validation.validate(helpRequest)
       if (error) return badRequest(error)
 
