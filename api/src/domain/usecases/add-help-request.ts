@@ -1,5 +1,5 @@
-import { InputHelpRequest, HelpRequest } from '../models/help-request'
+import { HelpRequestParams, HelpRequest } from '../models/help-request'
 
 export interface AddHelpRequest {
-  add(data: InputHelpRequest): Promise<HelpRequest>
+  add(data: HelpRequestParams): Promise<HelpRequest>
 }

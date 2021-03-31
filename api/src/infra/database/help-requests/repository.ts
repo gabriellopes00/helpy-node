@@ -1,9 +1,9 @@
-import { HelpRequest, InputHelpRequest } from '@/domain/models/help-request'
+import { HelpRequest, HelpRequestParams } from '@/domain/models/help-request'
 import { AddHelpRequestRepository } from '@/implementation/interfaces/add-help-request-repository'
 import { DbHelpRequest } from './model'
 
 export class MongoHelpRequestRepository implements AddHelpRequestRepository {
-  async add(data: InputHelpRequest): Promise<HelpRequest> {
+  async add(data: HelpRequestParams): Promise<HelpRequest> {
     const helpRequestModel = new DbHelpRequest(data)
     const result = await helpRequestModel.save()
     return {

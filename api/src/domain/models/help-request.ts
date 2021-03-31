@@ -5,5 +5,5 @@ export interface HelpRequest {
   longitude: number
 }
 
-export interface InputHelpRequest extends Omit<HelpRequest, 'id' | 'date'> {}
+export interface HelpRequestParams extends Omit<HelpRequest, 'id' | 'date'> {}
 export interface StoreHelpRequest extends Omit<HelpRequest, 'id'> {}

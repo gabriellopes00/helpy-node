@@ -1,4 +1,4 @@
-import { InputHelpRequest } from '@/domain/models/help-request'
+import { HelpRequestParams } from '@/domain/models/help-request'
 import { AddHelpRequest } from '@/domain/usecases/add-help-request'
 import { badRequest, noContent, serverError } from '../helpers/http'
 import { Controller } from '../interfaces/controller'
@@ -12,7 +12,7 @@ export class AddHelpRequestController implements Controller {
     private readonly eventEmitter: NodeJS.EventEmitter
   ) {}
 
-  async handle(httpRequest: HttpRequest<InputHelpRequest>): Promise<HttpResponse> {
+  async handle(httpRequest: HttpRequest<HelpRequestParams>): Promise<HttpResponse> {
     try {
       const helpRequest = httpRequest.body
       const error = this.validation.validate(helpRequest)

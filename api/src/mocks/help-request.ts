@@ -1,4 +1,4 @@
-import { HelpRequest, InputHelpRequest, StoreHelpRequest } from '../domain/models/help-request'
+import { HelpRequest, HelpRequestParams, StoreHelpRequest } from '../domain/models/help-request'
 
 export const fakeHelpRequest: HelpRequest = {
   id: 'any_id',
@@ -7,7 +7,7 @@ export const fakeHelpRequest: HelpRequest = {
   longitude: -46.869015
 }
 
-export const fakeHelpRequestParams: InputHelpRequest = {
+export const fakeHelpRequestParams: HelpRequestParams = {
   latitude: -23.168516,
   longitude: -46.869015
 }
