@@ -6,9 +6,11 @@ import { CoordinatesValidation } from '@/presentation/validation/coordinates-val
 import { RequiredFieldsValidation } from '@/presentation/validation/required-fields-validation'
 import { ValidationCompositor } from '@/presentation/validation/validation-compositor'
 import { eventEmitter } from '../event/event-emitter'
+import { IdGenerator } from '@/infra/utils/uuid-generator'
 
 const helpRequestRepository = new MongoHelpRequestRepository()
-const dbAddHelpRequest = new DbAddHelpRequest(helpRequestRepository)
+const idGenerator = new IdGenerator()
+const dbAddHelpRequest = new DbAddHelpRequest(helpRequestRepository, idGenerator)
 
 const validations = new ValidationCompositor([
   new RequiredFieldsValidation(['latitude', 'longitude']),
