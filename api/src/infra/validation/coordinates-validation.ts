@@ -1,5 +1,5 @@
 import validator from 'validator'
-import { LatLngValidation } from '../interfaces/coordinates-validation'
+import { LatLngValidation } from '../../presentation/validation/ports/coordinates-validation'
 
 export class CoordinatesValidator implements LatLngValidation {
   validate(coordinates: string): boolean {

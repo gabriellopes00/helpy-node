@@ -1,9 +1,8 @@
-import { HelpRequestParams } from '@/domain/models/help-request'
-import { AddHelpRequest } from '@/domain/usecases/add-help-request'
+import { AddHelpRequest, HelpRequestParams } from '@/domain/usecases/add-help-request'
 import { badRequest, noContent, serverError } from '../helpers/http'
-import { Controller } from '../interfaces/controller'
-import { HttpRequest, HttpResponse } from '../interfaces/http'
-import { Validation } from '../validation/interfaces/validation'
+import { Controller } from '../ports/controller'
+import { HttpRequest, HttpResponse } from '../ports/http'
+import { Validation } from '../ports/validation'
 
 export class AddHelpRequestController implements Controller {
   constructor(

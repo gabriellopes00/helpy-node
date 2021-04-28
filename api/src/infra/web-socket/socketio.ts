@@ -1,4 +1,4 @@
-import { WebSocket } from '@/presentation/interfaces/web-socket'
+import { WebSocket } from '@/presentation/ports/web-socket'
 import SocketIO from 'socket.io'
 
 export class SocketIo implements WebSocket {

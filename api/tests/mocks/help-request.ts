@@ -1,8 +1,6 @@
-import {
-  HelpRequest,
-  HelpRequestParams,
-  StoreHelpRequest
-} from '../../src/domain/models/help-request'
+import { HelpRequest } from '@/domain/models/help-request'
+import { HelpRequestParams } from '@/domain/usecases/add-help-request'
+import { DbHelpRequestModel } from '@/usecases/ports/add-help-request-repository'
 
 export const fakeHelpRequest: HelpRequest = {
   id: 'any_id',
@@ -16,7 +14,7 @@ export const fakeHelpRequestParams: HelpRequestParams = {
   longitude: -46.869015
 }
 
-export const fakeStoreHelpRequest: StoreHelpRequest = {
+export const fakeStoreHelpRequest: DbHelpRequestModel = {
   date: new Date('2021'),
   latitude: -23.168516,
   longitude: -46.869015

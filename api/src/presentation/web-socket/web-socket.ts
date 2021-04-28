@@ -1,4 +1,4 @@
-import { WebSocket } from '@/presentation/interfaces/web-socket'
+import { WebSocket } from '@/presentation/ports/web-socket'
 
 export class WebSocketManager {
   constructor(

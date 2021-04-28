@@ -2,11 +2,11 @@ import {
   fakeHelpRequest,
   fakeHelpRequestParams,
   fakeStoreHelpRequest
-} from 'tests/mocks/help-request'
-import { HelpRequest, HelpRequestParams } from '@/domain/models/help-request'
-import { AddHelpRequest } from '@/domain/usecases/add-help-request'
+} from '../../mocks/help-request'
+import { HelpRequest } from '@/domain/models/help-request'
+import { AddHelpRequest, HelpRequestParams } from '@/domain/usecases/add-help-request'
 import mockDate from 'mockdate'
-import { DbAddHelpRequest } from '@/implementation/usecases/help-requests/add-help-request'
+import { DbAddHelpRequest } from '@/usecases/implementation/help-requests/add-help-request'
 
 class MockHelpRequestRepository implements AddHelpRequest {
   async add(data: HelpRequestParams): Promise<HelpRequest> {

@@ -1,5 +1,5 @@
 import { ServerError } from '../errors/server-error'
-import { HttpResponse } from '../interfaces/http'
+import { HttpResponse } from '../ports/http'
 
 export const serverError = (error: Error): HttpResponse<Error> => ({
   statusCode: 500,

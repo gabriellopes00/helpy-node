@@ -1,5 +1,5 @@
 import { MissingParamError } from '@/presentation/errors/missing-param-error'
-import { RequiredFieldsValidation } from '@/presentation/validation/usecases/required-fields-validation'
+import { RequiredFieldsValidation } from '@/presentation/validation/required-fields-validation'
 
 describe('RequiredField Validation', () => {
   const sut = new RequiredFieldsValidation(['latitude', 'longitude'])

@@ -1,5 +1,5 @@
-import { HelpRequest, HelpRequestParams } from '@/domain/models/help-request'
-import { AddHelpRequest } from '@/domain/usecases/add-help-request'
+import { HelpRequest } from '@/domain/models/help-request'
+import { AddHelpRequest, HelpRequestParams } from '@/domain/usecases/add-help-request'
 import { fakeHelpRequestParams, fakeHelpRequest } from '../../../mocks/help-request'
 import { MockValidation } from '../../../mocks/validation'
 import { badRequest } from '@/presentation/helpers/http'

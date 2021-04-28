@@ -1,6 +1,6 @@
 import 'module-alias/register'
 import { close, connect } from '../infra/database/helpers/mongoose'
-import { port } from '../config/env'
+import { PORT } from '../config/env'
 import logger from '../config/logger'
 ;(async () => {
   try {
@@ -8,8 +8,8 @@ import logger from '../config/logger'
     logger.info('Mongodb connected successfully')
 
     const app = (await import('./config/app')).default
-    const server = app.listen(port, () => {
-      logger.info(`Server running at http://localhost:${port}`)
+    const server = app.listen(PORT, () => {
+      logger.info(`Server running at http://localhost:${PORT}`)
     })
 
     const exitSignals: NodeJS.Signals[] = ['SIGINT', 'SIGTERM', 'SIGQUIT']

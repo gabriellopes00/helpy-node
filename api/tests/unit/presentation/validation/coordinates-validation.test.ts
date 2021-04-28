@@ -1,6 +1,6 @@
 import { InvalidParamError } from '@/presentation/errors/invalid-param-error'
-import { CoordinatesValidation } from '@/presentation/validation/usecases/coordinates-validation'
-import { LatLngValidation } from '@/infra/validation/interfaces/coordinates-validation'
+import { CoordinatesValidation } from '@/presentation/validation/coordinates-validation'
+import { LatLngValidation } from '@/presentation/validation/ports/coordinates-validation'
 
 class MockCoordinatesValidator implements LatLngValidation {
   validate(coordinates: string): boolean {

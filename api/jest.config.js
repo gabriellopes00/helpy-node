@@ -17,6 +17,7 @@ module.exports = {
   coverageDirectory: 'coverage/',
   coverageProvider: 'v8',
   testMatch: [__dirname + '/tests/unit/**/*.test.ts'],
+  testPathIgnorePatterns: ['<rootDir>/tests/mocks/'],
   clearMocks: true,
   preset: '@shelf/jest-mongodb',
   transform: {

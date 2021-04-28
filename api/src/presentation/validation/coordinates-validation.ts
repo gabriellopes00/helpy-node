@@ -1,6 +1,6 @@
-import { LatLngValidation } from '@/infra/validation/interfaces/coordinates-validation'
 import { InvalidParamError } from '@/presentation/errors/invalid-param-error'
-import { Validation } from '../interfaces/validation'
+import { Validation } from '../ports/validation'
+import { LatLngValidation } from './ports/coordinates-validation'
 
 export class CoordinatesValidation implements Validation {
   constructor(private readonly coordinatesValidator: LatLngValidation) {}

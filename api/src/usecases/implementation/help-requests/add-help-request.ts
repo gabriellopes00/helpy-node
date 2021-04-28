@@ -1,6 +1,6 @@
-import { HelpRequestParams, HelpRequest } from '@/domain/models/help-request'
-import { AddHelpRequest } from '@/domain/usecases/add-help-request'
-import { AddHelpRequestRepository } from '@/implementation/interfaces/add-help-request-repository'
+import { HelpRequest } from '@/domain/models/help-request'
+import { AddHelpRequest, HelpRequestParams } from '@/domain/usecases/add-help-request'
+import { AddHelpRequestRepository } from '@/usecases/ports/add-help-request-repository'
 
 export class DbAddHelpRequest implements AddHelpRequest {
   constructor(private readonly HelpRepository: AddHelpRequestRepository) {}
