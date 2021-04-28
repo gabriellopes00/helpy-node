@@ -1,8 +1,22 @@
 {
-  "name": "default-setup",
+  "name": "help-women-api",
   "version": "1.0.0",
-  "description": "My default node projects setup",
-  "main": "src/server.ts",
+  "description": "",
+  "homepage": "https://github.com/gabriellopes00/help-women#readme",
+  "main": "src/main/server.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabriellopes00/help-women.git"
+  },
+  "author": {
+    "name": "Gabriel Luis Lopes",
+    "email": "gabrielluislopes00@gmail.com",
+    "url": "https://github.com/gabriellopes00"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabriellopes00/help-women/issues"
+  },
   "scripts": {
     "build": "rimraf dist/ && tsc -p tsconfig-build.json",
     "start": "node dist/main/server.js",
@@ -11,23 +25,11 @@
     "style:fix": "prettier --write **/*.ts",
     "lint": "eslint src tests --ext .ts",
     "lint:fix": "eslint src tests --ext .ts --fix",
-    "test": "jest --passWithNoTests --noStackTrace --runInBand --no-cache",
-    "test:cache": "jest --clearCache",
+    "test": "jest --passWithNoTests --silent --noStackTrace --runInBand --no-cache",
     "test:ci": "yarn test --coverage",
     "test:unit": "yarn test -c jest-unit-config.js",
-    "test:func": "yarn test -c jest-functional-config.js",
-    "test:full": "yarn test --silent"
+    "test:e2e": "yarn test -c jest-e2e-config.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gabriellopes00/node-project-setup.git"
-  },
-  "author": "Gabriel Lopes",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/gabriellopes00/node-project-setup/issues"
-  },
-  "homepage": "https://github.com/gabriellopes00/node-project-setup#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",

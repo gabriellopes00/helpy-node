@@ -1,10 +1,10 @@
 import { HelpRequest, HelpRequestParams } from '@/domain/models/help-request'
 import { AddHelpRequest } from '@/domain/usecases/add-help-request'
-import { fakeHelpRequestParams, fakeHelpRequest } from '@/mocks/help-request'
-import { MockValidation } from '@/mocks/validation'
+import { fakeHelpRequestParams, fakeHelpRequest } from '../../../mocks/help-request'
+import { MockValidation } from '../../../mocks/validation'
 import { badRequest } from '@/presentation/helpers/http'
 import EventEmitter from 'events'
-import { AddHelpRequestController } from '../add-help-request'
+import { AddHelpRequestController } from '@/presentation/controllers/add-help-request'
 
 class MockAddHelpRequest implements AddHelpRequest {
   async add(data: HelpRequestParams): Promise<HelpRequest> {

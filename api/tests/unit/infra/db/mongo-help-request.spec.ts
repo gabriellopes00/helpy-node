@@ -1,7 +1,7 @@
-import { fakeHelpRequest, fakeStoreHelpRequest } from '@/mocks/help-request'
-import { close, connect } from '../../helpers/mongoose'
-import { DbHelpRequest } from '../model'
-import { MongoHelpRequestRepository } from '../repository'
+import { fakeHelpRequest, fakeStoreHelpRequest } from 'tests/mocks/help-request'
+import { close, connect } from '@/infra/database/helpers/mongoose'
+import { DbHelpRequest } from '@/infra/database/help-requests/model'
+import { MongoHelpRequestRepository } from '@/infra/database/help-requests/repository'
 
 describe('Mongoose HelpRequest', () => {
   const Model = DbHelpRequest

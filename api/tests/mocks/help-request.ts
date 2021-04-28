@@ -1,4 +1,8 @@
-import { HelpRequest, HelpRequestParams, StoreHelpRequest } from '../domain/models/help-request'
+import {
+  HelpRequest,
+  HelpRequestParams,
+  StoreHelpRequest
+} from '../../src/domain/models/help-request'
 
 export const fakeHelpRequest: HelpRequest = {
   id: 'any_id',

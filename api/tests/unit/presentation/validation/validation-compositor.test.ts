@@ -1,5 +1,5 @@
-import { MockValidation } from '@/mocks/validation'
-import { ValidationCompositor } from '../validation-compositor'
+import { MockValidation } from '../../../mocks/validation'
+import { ValidationCompositor } from '@/presentation/validation/usecases/validation-compositor'
 
 describe('ValidationCompositor', () => {
   const mockValidation = new MockValidation() as jest.Mocked<MockValidation>

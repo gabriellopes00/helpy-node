@@ -1,6 +1,6 @@
 import { close, connect } from '@/infra/database/helpers/mongoose'
 import app from '@/main/config/app'
-import { fakeHelpRequestParams } from '@/mocks/help-request'
+import { fakeHelpRequestParams } from 'tests/mocks/help-request'
 import supertest from 'supertest'
 
 describe('AddHelpRequest Controller', () => {

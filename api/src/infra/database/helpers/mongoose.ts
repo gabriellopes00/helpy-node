@@ -1,8 +1,8 @@
-import { mongoUrl } from '@/config/env'
+import { MONGO_URL } from '@/config/env'
 import mongoose, { Mongoose } from 'mongoose'
 
 export const connect = async (): Promise<Mongoose> =>
-  await mongoose.connect(mongoUrl, {
+  await mongoose.connect(MONGO_URL, {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true
