@@ -10,11 +10,8 @@ export class DbAddHelpRequest implements AddHelpRequest {
   ) {}
 
   async add(data: HelpRequestParams): Promise<HelpRequest> {
-    const helpRequest = await this.HelpRepository.add({
-      id: this.uuidGenerator.generate(),
-      date: new Date(),
-      ...data
-    })
+    const uuid = this.uuidGenerator.generate()
+    const helpRequest = await this.HelpRepository.add({ id: uuid, date: new Date(), ...data })
     return helpRequest
   }
 }
