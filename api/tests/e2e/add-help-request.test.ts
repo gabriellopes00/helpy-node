@@ -1,5 +1,5 @@
 import { close, connect } from '@/infra/database/helpers/mongoose'
-import app from '@/main/config/app'
+import app from '@/main/server/app'
 import { fakeHelpRequestParams } from '../mocks/help-request'
 import supertest from 'supertest'
 

@@ -1,13 +1,15 @@
 import 'module-alias/register'
+import 'dotenv/config'
+
 import { close, connect } from '../infra/database/helpers/mongoose'
-import { PORT } from '../config/env'
-import logger from '../config/logger'
+import { PORT } from './config/env'
+import logger from './config/logger'
 ;(async () => {
   try {
     await connect()
     logger.info('Mongodb connected successfully')
 
-    const app = (await import('./config/app')).default
+    const app = (await import('./server/app')).default
     const server = app.listen(PORT, () => {
       logger.info(`Server running at http://localhost:${PORT}`)
     })

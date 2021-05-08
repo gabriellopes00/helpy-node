@@ -1,5 +1,6 @@
-import { MONGO_URL } from '@/config/env'
 import mongoose, { Mongoose } from 'mongoose'
+
+const { MONGO_URL } = process.env
 
 export const connect = async (): Promise<Mongoose> =>
   await mongoose.connect(MONGO_URL, {
